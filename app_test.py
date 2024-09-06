@@ -4,7 +4,6 @@ import numpy as np
 import streamlit.components.v1 as components
 
 with st.sidebar:
-    with st.echo():
         st.write("This code will be printed to the sidebar.")
 
 
