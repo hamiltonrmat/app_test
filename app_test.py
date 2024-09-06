@@ -9,7 +9,3 @@ st.title('SkillQuest Maths')
 url = "https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=mathskillsq.drawio.html#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1JckKNze4ue0CTv6WzvzFtlcs34MNmWiI%26export%3Ddownload"
 components.iframe(url, height=900)
 
-urll = "https://docs.google.com/presentation/d/1s4FcHclfo5pW9HyvBKQSM1nVPaMlNJEgfWjBeceiYsU/pub?start=false&loop=false&delayms=3000&slide=id.p"
-
-components.iframe(urll, height=900)
-
