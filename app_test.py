@@ -24,4 +24,4 @@ option = st.selectbox(
 )
 st.write("You selected:", option)
 
-st.dataframe(data=data)
+
