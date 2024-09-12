@@ -29,7 +29,7 @@ option = st.selectbox(
 
 df = data[data['nomCompetence'] == option][['Responsable', 'nbXP', 'disponible', 'obligatoire']]
 df
-ds = data[data['nomCompetence'] == option]]
+ds = data[data['nomCompetence'] == option]
 ds.DescriptionCompetence
 
 
