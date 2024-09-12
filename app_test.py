@@ -17,4 +17,11 @@ components.iframe(url, height=900)
 lien = "https://filesender.renater.fr/download.php?token=009f30f6-dc95-4b89-9638-ca4bbbd994af&files_ids=43453410"
 data = pd.read_excel("liste compétences pour manuel des joueurs.xlsx", sheet_name="données")
 
+domaines = data.nomDomaine.unique()
+
+option = st.selectbox(
+    "Sélectioner un domaine:",domaines,
+)
+st.write("You selected:", option)
+
 st.dataframe(data=data)
