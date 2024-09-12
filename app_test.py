@@ -22,7 +22,7 @@ domaines = data.nomDomaine.unique()
 option = st.selectbox(
     "Sélectioner un domaine:",domaines)
 comp_domaine = data[data['nomDomaine'] == option]
-comp_domaine.nomCompetence
+comp_domaine[[ 'nbXP','nomCompetence', 'disponible', 'obligatoire']]
 
 
 
