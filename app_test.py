@@ -22,6 +22,6 @@ domaines = data.nomDomaine.unique()
 option = st.selectbox(
     "Sélectioner un domaine:",domaines)
 
-option
+type(option)
 
 
