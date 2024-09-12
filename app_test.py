@@ -27,7 +27,7 @@ compet = list(comp_domaine.nomCompetence)
 option = st.selectbox(
     "Sélectioner un domaine:",compet)
 
-df = data[data['nomCompetence'] == option][['Responsable', 'nbXP', 'disponible', 'obligatoire', 'DescriptionCompetence']]
+df = data[data['nomCompetence'] == option][['Responsable', 'nbXP', 'disponible', 'obligatoire']]
 df
 
 
