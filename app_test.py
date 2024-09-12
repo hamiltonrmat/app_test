@@ -13,6 +13,6 @@ st.sidebar.write("Explorez l'arbre de compétences mathématiques UniLaSalle")
 url = "https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=mathskillsq.drawio.html#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1JckKNze4ue0CTv6WzvzFtlcs34MNmWiI%26export%3Ddownload"
 components.iframe(url, height=900)
 
-data = pd.read_excel("/content/liste compétences pour manuel des joueurs.xlsx", sheet_name="données")
+data = pd.read_excel("liste compétences pour manuel des joueurs.xlsx", sheet_name="données")
 
 st.dataframe(data=data)
