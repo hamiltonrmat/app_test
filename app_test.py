@@ -8,6 +8,7 @@ import openpyxl
 st.set_page_config(layout="wide")
 st.title('SkillQuest Maths')
 
+st.sidebar.header("Bienvenue !")
 st.sidebar.page_link("https://maths.unilasalle.fr", label="HubMaths UniLaSalle", icon="🌎")
 st.sidebar.page_link("https://moodle-beauvais.unilasalle.fr/course/view.php?id=1434", label="Moodle UniLaSalle SkillQuest", icon="🖥️")
 
