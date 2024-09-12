@@ -14,6 +14,6 @@ url = "https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit
 components.iframe(url, height=900)
 
 lien = "https://filesender.renater.fr/download.php?token=009f30f6-dc95-4b89-9638-ca4bbbd994af&files_ids=43453410"
-data = pd.read_excel(lien)
+data = pd.read_excel(lien, sheet_name="données")
 
 st.dataframe(data=data)
