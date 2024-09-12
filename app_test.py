@@ -30,7 +30,7 @@ st.write("Détails de la compétence:")
 df = data[data['nomCompetence'] == option][['Responsable', 'nbXP', 'disponible', 'obligatoire']]
 df
 ds = data[data['nomCompetence'] == option]
-st.write("Description de la compétence:)
+st.write("Description de la compétence:")
 list(ds.DescriptionCompetence)[0]
 
 
