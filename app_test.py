@@ -20,9 +20,8 @@ data = pd.read_excel("liste compétences pour manuel des joueurs.xlsx", sheet_na
 domaines = data.nomDomaine.unique()
 
 option = st.selectbox(
-    "Sélectioner un domaine:",domaines,
-)
-comp_domaine = data[data['nomDomaine'] == option])
-comp_domaine.nomCompetence
+    "Sélectioner un domaine:",domaines)
+
+option
 
 
