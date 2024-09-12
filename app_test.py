@@ -15,4 +15,4 @@ components.iframe(url, height=900)
 
 data = pd.read_excel("liste compétences pour manuel des joueurs.xlsx")
 
-st.dataframe(data)
+st.dataframe(data=data)
