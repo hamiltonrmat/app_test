@@ -7,7 +7,6 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 st.title('SkillQuest Maths')
 
-st.sidebar.button("maths.unilasalle.fr")
 st.sidebar.page_link("https://maths.unilasalle.fr", label="HubMaths UniLaSalle", icon="🌎")
 st.sidebar.write("Explorez l'arbre de compétences mathématiques UniLaSalle")
 
