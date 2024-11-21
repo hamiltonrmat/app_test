@@ -6,7 +6,7 @@ import openpyxl
 
 
 st.set_page_config(layout="wide")
-st.title('SkillQuest Maths')
+st.title('SkillQues Maths')
 
 st.sidebar.header("Bienvenue !")
 
