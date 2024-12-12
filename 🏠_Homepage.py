@@ -8,7 +8,7 @@ import openpyxl
 st.set_page_config(layout="wide")
 st.title('SkillQuest Maths')
 
-st.image("media.png")
+st.image("media.png", width=300)
 
 st.sidebar.header("Bienvenue !")
 
