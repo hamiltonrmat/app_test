@@ -310,13 +310,13 @@ for comp in options:
             ], key=comp)
         if genre == "Compétence validé":
             val = df_comp[df_comp['validation'] == 'validé'][['clé', 'mail', 'note_max', 'validation', 'xp']]
-            st.dataframe(val)
+            st.dataframe(val, hide_index=True)
             st.write(str(val.shape[0])+' étudiants')
         if genre == "Compétence pas validé":
             pas_val = df_comp[df_comp['validation'] == 'pas_validé'][['clé', 'mail', 'note_max', 'validation', 'xp']]
-            st.dataframe(pas_val)
+            st.dataframe(pas_val, hide_index=True)
             st.write(str(pas_val.shape[0])+' étudiants')
         if genre == "Pas de tentatives":
             pas_ten = df_comp[df_comp['validation'] == 'pas_de_tentative'][['clé', 'mail', 'validation', 'xp']]
-            st.dataframe(pas_ten)
+            st.dataframe(pas_ten, hide_index=True)
             st.write(str(pas_ten.shape[0])+' étudiants')          
