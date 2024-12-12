@@ -321,13 +321,12 @@ st.write("Vous avez sélectioné: ", nom_pre)
 
 agree = st.checkbox("Voir mes informations: ")
 
-df = tab_gen[tab_gen['clé'] == nom_pre]
-info_ml = df[['Maths_Lycée', 'validation_Maths_Lycée','xp_Maths_Lycée']]
-info_fr = df[['Fonctions_Réelles', 'validation_Fonctions_Réelles','xp_Fonctions_Réelles']]
-info_der = df[['Dérivées', 'validation_Dérivées','xp_Dérivées']]
-info_prim = df[['Primitives', 'validation_Primitives','xp_Primitives']]
-
 if agree:
+    df = tab_gen[tab_gen['clé'] == nom_pre]
+    info_ml = df[['Maths_Lycée', 'validation_Maths_Lycée','xp_Maths_Lycée']]
+    info_fr = df[['Fonctions_Réelles', 'validation_Fonctions_Réelles','xp_Fonctions_Réelles']]
+    info_der = df[['Dérivées', 'validation_Dérivées','xp_Dérivées']]
+    info_prim = df[['Primitives', 'validation_Primitives','xp_Primitives']]
     st.write("Nombre total de Xp's en Mathématiques:")
     qtd_xp_etu = nb_xp[df.index.values[0]]
     qtd_xp_etu
