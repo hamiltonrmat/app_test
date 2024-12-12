@@ -10,7 +10,7 @@ st.title('SkillQuest Maths')
 
 st.sidebar.header("Bienvenue !")
 
-st.sidebar.write("Explorez l'arbre de compétences mathématiques UniLaSalle")
+st.sidebar.write("Explorez les compétences mathématiques de SkillQuest et votre situation dans l'aventure")
 
 
 st.sidebar.page_link("https://maths.unilasalle.fr", label="HubMaths UniLaSalle", icon="🌎")
