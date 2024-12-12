@@ -304,7 +304,7 @@ situation_gen = situation_gen.set_index('validation')
 fig = px.bar(situation_gen, barmode='group', height=430)
 st.plotly_chart(fig)
 
-st.dataframe(situation_gen)
+st.dataframe(situation_gen, hide_index=True)
 
 
 
@@ -346,4 +346,4 @@ st.header("Vue d'ensemble sur les compétences, les validations et les Xp")
 
 st.caption("Par étudiant et par compétence")
 
-st.dataframe(tab_gen)
+st.dataframe(tab_gen, hide_index=True)
