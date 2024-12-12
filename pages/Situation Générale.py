@@ -304,7 +304,7 @@ situation_gen = situation_gen.set_index('validation')
 fig = px.bar(situation_gen, barmode='group', height=430)
 st.plotly_chart(fig)
 
-st.dataframe(situation_gen, hide_index=True)
+st.dataframe(situation_gen)
 
 
 
