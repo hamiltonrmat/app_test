@@ -8,6 +8,8 @@ import openpyxl
 st.set_page_config(layout="wide")
 st.title('SkillQuest Maths')
 
+st.image("media.png")
+
 st.sidebar.header("Bienvenue !")
 
 st.sidebar.write("Explorez les compétences mathématiques de SkillQuest et votre situation dans l'aventure")
