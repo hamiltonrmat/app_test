@@ -17,9 +17,12 @@ st.sidebar.page_link("https://maths.unilasalle.fr", label="HubMaths UniLaSalle",
 st.sidebar.page_link("https://moodle-beauvais.unilasalle.fr/course/view.php?id=1434", label="Moodle UniLaSalle SkillQuest", icon="🖥️")
 
 
-
-url = "https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=mathskillsq.drawio.html#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1JckKNze4ue0CTv6WzvzFtlcs34MNmWiI%26export%3Ddownload"
-components.iframe(url, height=900)
+st.page_link("Home.py", label="Home", icon="🏠")
+st.page_link("pages/Informations personnelles.py", label="Informations personnelles", icon="1️⃣")
+st.page_link("pages/Détail par compétence.py", label="Détail par compétence", icon="2️⃣")
+st.page_link("pages/Situation Générale.py", label="Situation Générale", icon="3️⃣")
+st.page_link("https://maths.unilasalle.fr", label="Hub Maths UniLaSalle", icon="🖥️")
+st.page_link("https://moodle-beauvais.unilasalle.fr/course/view.php?id=1434", label="Moodle SkillQuest", icon="📚")
 
 
 
