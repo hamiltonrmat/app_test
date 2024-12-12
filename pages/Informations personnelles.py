@@ -327,10 +327,9 @@ info_fr = df[['Fonctions_Réelles', 'validation_Fonctions_Réelles','xp_Fonction
 info_der = df[['Dérivées', 'validation_Dérivées','xp_Dérivées']]
 info_prim = df[['Primitives', 'validation_Primitives','xp_Primitives']]
 
-qtd_xp_etu = nb_xp[df.index.values[0]]
-
 if agree:
     st.write("Nombre total de Xp's en Mathématiques:")
+    qtd_xp_etu = nb_xp[df.index.values[0]]
     qtd_xp_etu
     st.dataframe(info_ml, hide_index=True)
     st.dataframe(info_fr, hide_index=True)
