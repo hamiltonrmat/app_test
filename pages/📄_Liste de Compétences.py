@@ -16,7 +16,7 @@ comp_domaine = data[data['nomDomaine'] == option]
 compet = list(comp_domaine.nomCompetence)
 
 option = st.selectbox(
-    "Sélectioner un domaine:",compet)
+    "Sélectioner un domaine:",compet,  index=3)
 st.write("Détails de la compétence:")
 df = data[data['nomCompetence'] == option][['Responsable', 'nbXP', 'disponible', 'obligatoire']]
 df
