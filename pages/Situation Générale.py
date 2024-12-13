@@ -340,10 +340,10 @@ for liste in validations:
 
 tab_gen['xp_maths'] = nb_xp
 
-st.divider()
+#st.divider()
 
-st.header("Vue d'ensemble sur les compétences, les validations et les Xp")
+#st.header("Vue d'ensemble sur les compétences, les validations et les Xp")
 
-st.caption("Par étudiant et par compétence")
+#st.caption("Par étudiant et par compétence")
 
-st.dataframe(tab_gen, hide_index=True)
+#st.dataframe(tab_gen, hide_index=True)
