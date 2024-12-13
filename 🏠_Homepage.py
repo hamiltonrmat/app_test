@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-
+  st.header('')
 with col2:
   st.title('SkillQuest Maths')
   
@@ -35,6 +35,7 @@ with col2:
   st.page_link("https://moodle-beauvais.unilasalle.fr/course/view.php?id=1434", label="Moodle SkillQuest", icon="📚")
 
 with col3:
+  st.header('')
 
 
 
