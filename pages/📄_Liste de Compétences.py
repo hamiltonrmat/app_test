@@ -11,7 +11,7 @@ domaines = data.nomDomaine.unique()
 
 st.header("Liste de compétences")
 option = st.selectbox(
-    "Sélectioner un domaine:",domaines, index='Mathématique')
+    "Sélectioner un domaine:",domaines)
 comp_domaine = data[data['nomDomaine'] == option]
 compet = list(comp_domaine.nomCompetence)
 
