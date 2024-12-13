@@ -214,7 +214,7 @@ validations_der = []
 for i in range(der.shape[0]):
     if der['note_max'].isnull()[i] == True:
         validations_der.append('pas_de_tentative')
-    elif der['note_max'][i] >= 11:
+    elif der['note_max'][i] >= 10:
         validations_der.append('validé')
     else:
         validations_der.append('pas_validé')
