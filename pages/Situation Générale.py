@@ -32,6 +32,13 @@ resultats_prim = pd.read_excel(lien_resultats_prim)
 file = pd.ExcelFile(lien_resultats_prim) 
 tables_resultats_prim = file.sheet_names
 
+# Systèmes 
+lien_resultats_sys = "resultats_sys.xlsx"
+resultats_sys = pd.read_excel(lien_resultats_sys)
+file = pd.ExcelFile(lien_resultats_sys) 
+tables_resultats_sys = file.sheet_names
+
+
 
 ############ EXAMENS ##########################
 
@@ -76,7 +83,12 @@ exam8_ml = exam8_ml[['Clé', 'Note/20,00']]
 exam8_ml.columns = ['clé', 'note']
 exam8_ml = exam8_ml.groupby(['clé']).max().reset_index()
 
-liste_exams_ML = [exam1_ml, exam2_ml, exam3_ml, exam4_ml, exam5_ml, exam6_ml, exam7_ml, exam8_ml]
+exam9_ml = pd.read_excel(lien_resultats_ml, sheet_name=tables_resultats_ml[8])
+exam9_ml = exam9_ml[['Clé', 'Note/20,00']]
+exam9_ml.columns = ['clé', 'note']
+exam9_ml = exam9_ml.groupby(['clé']).max().reset_index()
+
+liste_exams_ML = [exam1_ml, exam2_ml, exam3_ml, exam4_ml, exam5_ml, exam6_ml, exam7_ml, exam8_ml, exam9_ml]
 
 for x in range(len(liste_exams_ML)):
     liste_exams_ML[x].columns = ['clé', 'note_ml_t'+str(x+1)]
@@ -89,6 +101,7 @@ ml = ml.merge(exam5_ml, how='left', on='clé')
 ml = ml.merge(exam6_ml, how='left', on='clé')
 ml = ml.merge(exam7_ml, how='left', on='clé')
 ml = ml.merge(exam8_ml, how='left', on='clé')
+ml = ml.merge(exam9_ml, how='left', on='clé')
 
 ml['note_max'] = ml.max(axis='columns', numeric_only=True)
 
@@ -145,7 +158,12 @@ exam5_fr = exam5_fr[['Clé', 'Note/20,00']]
 exam5_fr.columns = ['clé', 'note']
 exam5_fr = exam5_fr.groupby(['clé']).max().reset_index()
 
-liste_exams_FR = [exam1_fr, exam2_fr, exam3_fr, exam4_fr, exam5_fr]
+exam6_fr = pd.read_excel(lien_resultats_fr, sheet_name=tables_resultats_fr[5])
+exam6_fr = exam6_fr[['Clé', 'Note/20,00']]
+exam6_fr.columns = ['clé', 'note']
+exam6_fr = exam6_fr.groupby(['clé']).max().reset_index()
+
+liste_exams_FR = [exam1_fr, exam2_fr, exam3_fr, exam4_fr, exam5_fr, exam6_fr]
 
 for x in range(len(liste_exams_FR)):
     liste_exams_FR[x].columns = ['clé', 'note_fr_t'+str(x+1)]
@@ -155,6 +173,7 @@ fr = fr.merge(exam2_fr, how='left', on='clé')
 fr = fr.merge(exam3_fr, how='left', on='clé')
 fr = fr.merge(exam4_fr, how='left', on='clé')
 fr = fr.merge(exam5_fr, how='left', on='clé')
+fr = fr.merge(exam6_fr, how='left', on='clé')
 
 fr['note_max'] = fr.max(axis='columns', numeric_only=True)
 
@@ -199,7 +218,12 @@ exam3_der = exam3_der[['Clé', 'Note/20,00']]
 exam3_der.columns = ['clé', 'note']
 exam3_der = exam3_der.groupby(['clé']).max().reset_index()
 
-liste_exams_der = [exam1_der, exam2_der, exam3_der]
+exam4_der = pd.read_excel(lien_resultats_der, sheet_name=tables_resultats_der[3])
+exam4_der = exam4_der[['Clé', 'Note/20,00']]
+exam4_der.columns = ['clé', 'note']
+exam4_der = exam4_der.groupby(['clé']).max().reset_index()
+
+liste_exams_der = [exam1_der, exam2_der, exam3_der, exam4_der]
 
 for x in range(len(liste_exams_der)):
     liste_exams_der[x].columns = ['clé', 'note_der_t'+str(x+1)]
@@ -207,6 +231,7 @@ for x in range(len(liste_exams_der)):
 der = liste_gen.merge(exam1_der, how='left', on='clé')
 der = der.merge(exam2_der, how='left', on='clé')
 der = der.merge(exam3_der, how='left', on='clé')
+der = der.merge(exam4_der, how='left', on='clé')
 
 der['note_max'] = der.max(axis='columns', numeric_only=True)
 
@@ -240,13 +265,18 @@ exam1_prim = exam1_prim[['Clé', 'Note/20,00']]
 exam1_prim.columns = ['clé', 'note']
 exam1_prim = exam1_prim.groupby(['clé']).max().reset_index()
 
-liste_exams_prim = [exam1_prim]
+exam2_prim = pd.read_excel(lien_resultats_prim, sheet_name=tables_resultats_prim[1])
+exam2_prim = exam2_prim[['Clé', 'Note/20,00']]
+exam2_prim.columns = ['clé', 'note']
+exam2_prim = exam2_prim.groupby(['clé']).max().reset_index()
+
+liste_exams_prim = [exam1_prim, exam2_prim]
 
 for x in range(len(liste_exams_prim)):
     liste_exams_prim[x].columns = ['clé', 'note_prim_t'+str(x+1)]
 
 prim = liste_gen.merge(exam1_prim, how='left', on='clé')
-#prim = prim.merge(exam2_prim, how='left', on='clé')
+prim = prim.merge(exam2_prim, how='left', on='clé')
 
 prim['note_max'] = prim.max(axis='columns', numeric_only=True)
 
@@ -272,9 +302,49 @@ for i in range(prim.shape[0]):
         xp.append('Bronze')
 prim['xp'] = xp
 
+############ Systèmes d'équations linéaires
+
+exam1_sys= pd.read_excel(lien_resultats_sys, sheet_name=tables_resultats_sys[0])
+exam1_sys = exam1_sys[['Clé', 'Note/10,00']]
+exam1_sys.columns = ['clé', 'note']
+exam1_sys = exam1_sys.groupby(['clé']).max().reset_index()
+
+liste_exams_sys = [exam1_sys]
+
+for x in range(len(liste_exams_sys)):
+    liste_exams_sys[x].columns = ['clé', 'note_sys_t'+str(x+1)]
+
+sys = liste_gen.merge(exam1_sys, how='left', on='clé')
+#sys = prim.merge(exam2_prim, how='left', on='clé')
+
+sys['note_max'] = sys.max(axis='columns', numeric_only=True)
+
+validations_sys = []
+for i in range(sys.shape[0]):
+    if sys['note_max'].isnull()[i] == True:
+        validations_sys.append('pas_de_tentative')
+    elif sys['note_max'][i] >= 5.5:
+        validations_sys.append('validé')
+    else:
+        validations_sys.append('pas_validé')
+sys['validation'] = validations_sys
+
+xp = []
+for i in range(sys.shape[0]):
+    if validations_sys[i] == 'pas_de_tentative':
+        xp.append('pas_de_tentative')
+    elif validations_sys[i] == 'pas_validé':
+        xp.append('pas_validé')
+    elif [sys['note_max'][i] for i in range(sys.shape[0])][i] == 10:
+         xp.append('Argent')
+    else:
+        xp.append('Bronze')
+sys['xp'] = xp
 
 
 st.title("Situation générale")
+
+st.write("Dernière mise à jour: 17/12/2024") 
 
 st.header("Nombre de validations par compétence")
 
@@ -282,8 +352,8 @@ st.caption("Informations si la compétence est validé, pas validé ou si pas de
 
 
 
-competences = ["Maths du Lycée", "Fonctions Réelles", "Dérivées", "Primitives"]
-df_competences = [ml, fr, der, prim]
+competences = ["Maths du Lycée", "Fonctions Réelles", "Dérivées", "Primitives", "Systèmes d'équations Linéaires"]
+df_competences = [ml, fr, der, prim, sys]
 
 ml_valid = pd.DataFrame(ml.validation.value_counts()).reset_index()
 ml_valid.columns = ['validation', "Maths du Lycée"]
@@ -297,9 +367,13 @@ der_valid.columns = ['validation', "Dérivées"]
 prim_valid = pd.DataFrame(prim.validation.value_counts()).reset_index()
 prim_valid.columns = ['validation', "Primimitives"]
 
+sys_valid = pd.DataFrame(sys.validation.value_counts()).reset_index()
+sys_valid.columns = ['validation', "Systèmes_eq_linéaires"]
+
 situation_gen = ml_valid.merge(fr_valid, how='left', on='validation')
 situation_gen = situation_gen.merge(der_valid, how='left', on='validation')
 situation_gen = situation_gen.merge(prim_valid, how='left', on='validation')
+situation_gen = situation_gen.merge(sys_valid, how='left', on='validation')
 situation_gen = situation_gen.set_index('validation')
 fig = px.bar(situation_gen, barmode='group', height=430)
 st.plotly_chart(fig)
@@ -321,13 +395,16 @@ tab_gen = tab_gen.merge(der[['clé', 'note_max', 'validation', 'xp']], how='left
 tab_gen = tab_gen.rename(columns={"note_max": "Dérivées", "validation": "validation_Dérivées", "xp": "xp_Dérivées"})
 tab_gen = tab_gen.merge(prim[['clé', 'note_max', 'validation', 'xp']], how='left', on='clé')
 tab_gen = tab_gen.rename(columns={"note_max": "Primitives", "validation": "validation_Primitives", "xp": "xp_Primitives"})
+tab_gen = tab_gen.merge(sys[['clé', 'note_max', 'validation', 'xp']], how='left', on='clé')
+tab_gen = tab_gen.rename(columns={"note_max": "Systèmes_eq_linéaires", "validation": "validation_Systèmes", "xp": "xp_Systèmes"})
 
 
 validations = [[tab_gen['validation_Maths_Lycée'][i], 
                 tab_gen['validation_Fonctions_Réelles'][i], 
                 tab_gen['validation_Dérivées'][i], 
-                tab_gen['validation_Primitives'][i]] for i in range(tab_gen.shape[0])]
-val_xp = [0, 8, 8, 8]
+                tab_gen['validation_Primitives'][i],
+                tab_gen['validation_Systèmes'][i]] for i in range(tab_gen.shape[0])]
+val_xp = [0, 8, 8, 8, 5]
 
 
 nb_xp = []
@@ -346,4 +423,4 @@ st.header("Vue d'ensemble sur les compétences, les validations et les Xp")
 
 st.caption("Par étudiant et par compétence")
 
-st.dataframe(tab_gen, hide_index=True)
+st.dataframe(tab_gen)
