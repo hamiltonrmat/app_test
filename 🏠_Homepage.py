@@ -29,6 +29,7 @@ with col2:
   st.page_link("pages/Détail par compétence.py", label="Détail par compétence", icon="1️⃣")
   st.page_link("pages/Informations personnelles.py", label="Informations personnelles", icon="2️⃣")
   st.page_link("pages/Situation Générale.py", label="Situation Générale", icon="3️⃣")
+  st.page_link("pages/Top 20.py", label="Situation Générale", icon="4️⃣")
   st.page_link("pages/📄_Liste de Compétences.py", label="Liste de compétences", icon="📄")
   st.page_link("pages/Arbre de compétences.py", label="Arbre de compétences", icon="🌳")
   st.page_link("https://maths.unilasalle.fr", label="Hub Maths UniLaSalle", icon="🖥️")
