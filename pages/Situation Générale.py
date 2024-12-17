@@ -3,7 +3,7 @@ import streamlit as st
 import plotly.express as px
 import hmac
 
-
+'''
 ############ aut
 def check_password():
     """Returns `True` if the user had a correct password."""
@@ -42,7 +42,7 @@ def check_password():
 
 if not check_password():
     st.stop()
-
+'''
 ###################
 
 
