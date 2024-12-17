@@ -342,16 +342,6 @@ for i in range(sys.shape[0]):
 sys['xp'] = xp
 
 
-st.title("Situation générale")
-
-st.write("Dernière mise à jour: 17/12/2024") 
-
-st.header("Nombre de validations par compétence")
-
-st.caption("Informations si la compétence est validé, pas validé ou si pas de tentatives de validation")
-
-
-
 competences = ["Maths du Lycée", "Fonctions Réelles", "Dérivées", "Primitives", "Systèmes d'équations Linéaires"]
 df_competences = [ml, fr, der, prim, sys]
 
@@ -409,6 +399,7 @@ for liste in validations:
 
 tab_gen['xp_maths'] = nb_xp
 
-st.header("Le Top 20 en Maths")
+st.title("Le Top 20 en Maths")
+st.write("Dernière mise à jour: 17/12/2024") 
 
 st.dataframe(tab_gen[['clé', 'xp_maths', 'nb_argent']].sort_values(by=['xp_maths', 'nb_argent'], ascending=False).head(20))
