@@ -410,4 +410,13 @@ tab_gen['nb_argent'] = qtd_argent
 st.title("Le Top 20 en Maths")
 st.write("Dernière mise à jour: 17/12/2024") 
 
-st.dataframe(tab_gen[['clé', 'xp_maths', 'nb_argent']].sort_values(by=['xp_maths', 'nb_argent'], ascending=False).head(20), hide_index=True)
+top_20 = tab_gen[['clé', 'xp_maths', 'nb_argent']].sort_values(by=['xp_maths', 'nb_argent'], ascending=False).head(20)
+top_20.index = ['top '+str(i) for i in range(1,21)]
+
+st.dataframe(top_20)
+
+st.title("Le top 3")
+col1, col2, col3 = st.columns(3)
+col1.metric(top_20['clé'][0], 'Xp: '+str(top_20['xp_maths'][0]), 'Argents: '+str(top_20['nb_argent'][0]))
+col2.metric(top_20['clé'][1], 'Xp: '+str(top_20['xp_maths'][1]), 'Argents: '+str(top_20['nb_argent'][1]))
+col3.metric(top_20['clé'][2], 'Xp: '+str(top_20['xp_maths'][2]), 'Argents: '+str(top_20['nb_argent'][2]))
