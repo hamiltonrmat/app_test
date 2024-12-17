@@ -417,6 +417,14 @@ for liste in validations:
 
 tab_gen['xp_maths'] = nb_xp
 
+qtd_argent = [[tab_gen['xp_Maths_Lycée'][i],
+               tab_gen['xp_Fonctions_Réelles'][i],
+               tab_gen['xp_Dérivées'][i],
+               tab_gen['xp_Primitives'][i],
+               tab_gen['xp_Systèmes'][i]].count('Argent') for i in range(tab_gen.shape[0])]
+
+tab_gen['nb_argent'] = qtd_argent
+
 st.divider()
 
 st.header("Vue d'ensemble sur les compétences, les validations et les Xp")
