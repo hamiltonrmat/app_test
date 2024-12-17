@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import streamlit.components.v1 as components
 import openpyxl
+import hmac
+
 
 def check_password():
     """Returns `True` if the user had a correct password."""
@@ -41,10 +43,6 @@ def check_password():
 
 if not check_password():
     st.stop()
-
-# Main Streamlit app starts here
-st.write("Here goes your normal Streamlit app...")
-st.button("Click me")
 
 st.set_page_config(layout="wide")
 
