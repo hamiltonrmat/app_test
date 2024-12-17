@@ -402,4 +402,4 @@ tab_gen['xp_maths'] = nb_xp
 st.title("Le Top 20 en Maths")
 st.write("Dernière mise à jour: 17/12/2024") 
 
-st.dataframe(tab_gen[['clé', 'xp_maths', 'nb_argent']].sort_values(by=['xp_maths', 'nb_argent'], ascending=False).head(20))
+tab_gen[['clé', 'xp_maths', 'nb_argent']].sort_values(by=['xp_maths', 'nb_argent'], ascending=False).head(20)
