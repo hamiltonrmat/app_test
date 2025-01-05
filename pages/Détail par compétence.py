@@ -170,7 +170,7 @@ exam6_fr.columns = ['clé', 'note']
 exam6_fr = exam6_fr.groupby(['clé']).max().reset_index()
 
 exam7_fr = pd.read_excel(lien_resultats_fr, sheet_name=tables_resultats_fr[6])
-exam7_fr = exam6_fr[['Clé', 'Note/20,00']]
+exam7_fr = exam7_fr[['Clé', 'Note/20,00']]
 exam7_fr.columns = ['clé', 'note']
 exam7_fr = exam7_fr.groupby(['clé']).max().reset_index()
 
