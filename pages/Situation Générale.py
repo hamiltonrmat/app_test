@@ -2,10 +2,6 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-
-###################
-
-
 liste_gen = pd.read_excel('liste_gen.xlsx')[['prénom', 'NOM', 'clé', 'mail']]
 liste_ml = pd.read_excel('liste_ml.xlsx')[['prénom', 'NOM', 'clé', 'mail']]
 
@@ -92,7 +88,12 @@ exam9_ml = exam9_ml[['Clé', 'Note/20,00']]
 exam9_ml.columns = ['clé', 'note']
 exam9_ml = exam9_ml.groupby(['clé']).max().reset_index()
 
-liste_exams_ML = [exam1_ml, exam2_ml, exam3_ml, exam4_ml, exam5_ml, exam6_ml, exam7_ml, exam8_ml, exam9_ml]
+exam10_ml = pd.read_excel(lien_resultats_ml, sheet_name=tables_resultats_ml[9])
+exam10_ml = exam10_ml[['Clé', 'Note/20,00']]
+exam10_ml.columns = ['clé', 'note']
+exam10_ml = exam10_ml.groupby(['clé']).max().reset_index()
+
+liste_exams_ML = [exam1_ml, exam2_ml, exam3_ml, exam4_ml, exam5_ml, exam6_ml, exam7_ml, exam8_ml, exam9_ml, exam10_ml]
 
 for x in range(len(liste_exams_ML)):
     liste_exams_ML[x].columns = ['clé', 'note_ml_t'+str(x+1)]
@@ -106,6 +107,7 @@ ml = ml.merge(exam6_ml, how='left', on='clé')
 ml = ml.merge(exam7_ml, how='left', on='clé')
 ml = ml.merge(exam8_ml, how='left', on='clé')
 ml = ml.merge(exam9_ml, how='left', on='clé')
+ml = ml.merge(exam10_ml, how='left', on='clé')
 
 ml['note_max'] = ml.max(axis='columns', numeric_only=True)
 
@@ -167,7 +169,12 @@ exam6_fr = exam6_fr[['Clé', 'Note/20,00']]
 exam6_fr.columns = ['clé', 'note']
 exam6_fr = exam6_fr.groupby(['clé']).max().reset_index()
 
-liste_exams_FR = [exam1_fr, exam2_fr, exam3_fr, exam4_fr, exam5_fr, exam6_fr]
+exam7_fr = pd.read_excel(lien_resultats_fr, sheet_name=tables_resultats_fr[6])
+exam7_fr = exam7_fr[['Clé', 'Note/20,00']]
+exam7_fr.columns = ['clé', 'note']
+exam7_fr = exam7_fr.groupby(['clé']).max().reset_index()
+
+liste_exams_FR = [exam1_fr, exam2_fr, exam3_fr, exam4_fr, exam5_fr, exam6_fr, exam7_fr]
 
 for x in range(len(liste_exams_FR)):
     liste_exams_FR[x].columns = ['clé', 'note_fr_t'+str(x+1)]
@@ -178,6 +185,7 @@ fr = fr.merge(exam3_fr, how='left', on='clé')
 fr = fr.merge(exam4_fr, how='left', on='clé')
 fr = fr.merge(exam5_fr, how='left', on='clé')
 fr = fr.merge(exam6_fr, how='left', on='clé')
+fr = fr.merge(exam7_fr, how='left', on='clé')
 
 fr['note_max'] = fr.max(axis='columns', numeric_only=True)
 
@@ -227,7 +235,12 @@ exam4_der = exam4_der[['Clé', 'Note/20,00']]
 exam4_der.columns = ['clé', 'note']
 exam4_der = exam4_der.groupby(['clé']).max().reset_index()
 
-liste_exams_der = [exam1_der, exam2_der, exam3_der, exam4_der]
+exam5_der = pd.read_excel(lien_resultats_der, sheet_name=tables_resultats_der[4])
+exam5_der = exam5_der[['Clé', 'Note/20,00']]
+exam5_der.columns = ['clé', 'note']
+exam5_der = exam5_der.groupby(['clé']).max().reset_index()
+
+liste_exams_der = [exam1_der, exam2_der, exam3_der, exam4_der, exam5_der]
 
 for x in range(len(liste_exams_der)):
     liste_exams_der[x].columns = ['clé', 'note_der_t'+str(x+1)]
@@ -236,6 +249,7 @@ der = liste_gen.merge(exam1_der, how='left', on='clé')
 der = der.merge(exam2_der, how='left', on='clé')
 der = der.merge(exam3_der, how='left', on='clé')
 der = der.merge(exam4_der, how='left', on='clé')
+der = der.merge(exam5_der, how='left', on='clé')
 
 der['note_max'] = der.max(axis='columns', numeric_only=True)
 
@@ -274,13 +288,19 @@ exam2_prim = exam2_prim[['Clé', 'Note/20,00']]
 exam2_prim.columns = ['clé', 'note']
 exam2_prim = exam2_prim.groupby(['clé']).max().reset_index()
 
-liste_exams_prim = [exam1_prim, exam2_prim]
+exam3_prim = pd.read_excel(lien_resultats_prim, sheet_name=tables_resultats_prim[2])
+exam3_prim = exam3_prim[['Clé', 'Note/20,00']]
+exam3_prim.columns = ['clé', 'note']
+exam3_prim = exam3_prim.groupby(['clé']).max().reset_index()
+
+liste_exams_prim = [exam1_prim, exam2_prim, exam3_prim]
 
 for x in range(len(liste_exams_prim)):
     liste_exams_prim[x].columns = ['clé', 'note_prim_t'+str(x+1)]
 
 prim = liste_gen.merge(exam1_prim, how='left', on='clé')
 prim = prim.merge(exam2_prim, how='left', on='clé')
+prim = prim.merge(exam3_prim, how='left', on='clé')
 
 prim['note_max'] = prim.max(axis='columns', numeric_only=True)
 
@@ -313,13 +333,18 @@ exam1_sys = exam1_sys[['Clé', 'Note/10,00']]
 exam1_sys.columns = ['clé', 'note']
 exam1_sys = exam1_sys.groupby(['clé']).max().reset_index()
 
-liste_exams_sys = [exam1_sys]
+exam2_sys= pd.read_excel(lien_resultats_sys, sheet_name=tables_resultats_sys[1])
+exam2_sys = exam2_sys[['Clé', 'Note/10,00']]
+exam2_sys.columns = ['clé', 'note']
+exam2_sys = exam2_sys.groupby(['clé']).max().reset_index()
+
+liste_exams_sys = [exam1_sys, exam2_sys]
 
 for x in range(len(liste_exams_sys)):
     liste_exams_sys[x].columns = ['clé', 'note_sys_t'+str(x+1)]
 
 sys = liste_gen.merge(exam1_sys, how='left', on='clé')
-#sys = prim.merge(exam2_prim, how='left', on='clé')
+sys = prim.merge(exam2_prim, how='left', on='clé')
 
 sys['note_max'] = sys.max(axis='columns', numeric_only=True)
 
@@ -346,9 +371,12 @@ for i in range(sys.shape[0]):
 sys['xp'] = xp
 
 
+
+
+
 st.title("Situation générale")
 
-st.write("Dernière mise à jour: 17/12/2024") 
+st.write("Dernière mise à jour: 06/01/2025") 
 
 st.header("Nombre de validations par compétence")
 
