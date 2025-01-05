@@ -417,7 +417,7 @@ tab_gen['nb_argent'] = qtd_argent
 
 st.title('Informations personelles')
 
-st.write("Dernière mise à jour: 17/12/2024") 
+st.write("Dernière mise à jour: 06/01/2025") 
 
 cles = pd.DataFrame(liste_gen[['clé', 'mail']])
 cles = liste_gen.dropna()
