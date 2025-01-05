@@ -382,7 +382,7 @@ df_competences = [ml, fr, der, prim, sys]
 
 options = st.multiselect("Selectioner une compétence:",competences)
 
-st.write("Dernière mise à jour: 17/12/2024") 
+st.write("Dernière mise à jour: 06/01/2025") 
 
 for comp in options:
     df_comp = df_competences[competences.index(comp)]
