@@ -344,7 +344,7 @@ for x in range(len(liste_exams_sys)):
     liste_exams_sys[x].columns = ['clé', 'note_sys_t'+str(x+1)]
 
 sys = liste_gen.merge(exam1_sys, how='left', on='clé')
-sys = prim.merge(exam2_prim, how='left', on='clé')
+sys = prim.merge(exam2_sys, how='left', on='clé')
 
 sys['note_max'] = sys.max(axis='columns', numeric_only=True)
 
