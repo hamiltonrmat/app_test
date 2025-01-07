@@ -406,7 +406,7 @@ sys['xp'] = xp
 
 st.title("Situation générale")
 
-st.write("Dernière mise à jour: 06/01/2025") 
+st.write("Dernière mise à jour: 08/01/2025")
 
 st.header("Nombre de validations par compétence")
 
