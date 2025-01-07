@@ -469,7 +469,7 @@ qtd_argent = [[tab_gen['xp_Maths_Lycée'][i],
 tab_gen['nb_argent'] = qtd_argent
 
 st.title("Le Top 20 en Maths")
-st.write("Dernière mise à jour: 06/01/2025") 
+st.write("Dernière mise à jour: 08/01/2025") 
 
 top_20 = tab_gen[['clé', 'xp_maths', 'nb_argent']].sort_values(by=['xp_maths', 'nb_argent'], ascending=False).head(20)
 top_20.index = ['top '+str(i) for i in range(1,21)]
