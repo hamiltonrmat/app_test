@@ -332,7 +332,7 @@ validations_prim = []
 for i in range(prim.shape[0]):
     if prim['note_max'].isnull()[i] == True:
         validations_prim.append('pas_de_tentative')
-    elif prim['note_max'][i] >= 11:
+    elif prim['note_max'][i] >= 10:
         validations_prim.append('validé')
     else:
         validations_prim.append('pas_validé')
